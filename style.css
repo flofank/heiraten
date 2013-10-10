@@ -41,25 +41,30 @@
                 z-index: -1;
             }
             nav {
-            	width: 100%;
-            	overflow: hidden;
-            	
-                padding-left: 200px;
-                padding-bottom: 40px;
+            	/*width: 100%;*/
+                padding: 3px 9px 9px 3px;
+                font-size: 12pt;
+                display: inline-block;
+                margin-left: 200px;
+                border: 3px solid rgba(255,255,255,0.6);
+                border-right: 0px;
+                border-bottom: 0px;
+                border-radius: 6px 12px 0px 12px;
             }
             nav>a {
                 display: block;
                 float: left;
-                padding: 4px 12px;
-                background: rgba(135,130,90,1);
+                padding: 3px;
                 margin-right: 3px;
-                color: rgba(199,219,244,1);
+                background: rgba(255,255,255,0.2);
+                color: rgba(135,130,90,1);
                 text-decoration: none;
                 font-weight: bold;
-                text-shadow: rgba(255,255,255,1) 0px -1px 1px;
                 font-size: 14pt;
-                border-radius: 100px 20px;
-                box-shadow: inset -1px -1px 4px #000, inset 1px 1px 4px 0px #FFF
+                border-radius: 3px;
+            }
+            nav>a:hover {
+                background: rgba(255,255,255,0.6);
             }
             #scrollBoxContainer {
                 margin: 0 auto;
@@ -80,18 +85,19 @@
             #content {
                 width: 9020px;
                 /*background: #EED;*/
-                height: 100%;
+                /*height: 100%;*/
             }
             section {
                 width: 675px;
                 height: 450px;
-                background: rgba(135,130,90,1);
-                /*background: rgba(80,50,0,0.7);*/                 
+                background: rgba(255,255,255,0.6);
+                /*background: rgba(135,130,90,1);*/
+                /*background: #025;*/                 
                 display: block;
-                color: white;
+                color: rgba(95,90,50,1);
                 float: left;
                 margin-right: 10px;
-                box-shadow: 2px 2px 4px 0px #000;
+                /*box-shadow: 2px 2px 4px 0px #000;*/
 /*                 border-radius: 10px; */
             }
             section.text {
@@ -159,20 +165,23 @@
 
             ::-webkit-scrollbar {
                 width: 12px;
+                height: 16px;
             }
             ::-webkit-scrollbar-track {
                 -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6); 
-                border-radius: 10px;
-                background: rgba(170,170,170,1);
+                border-radius: 8px;
+                /*background: rgba(170,170,170,1);*/
+                background: rgba(0,0,225,0.15);
             }
             ::-webkit-scrollbar-track-piece {               
             }
             ::-webkit-scrollbar-thumb {
                 -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6); 
-                background: rgba(135,130,90,1);                 
+                /*background: rgba(135,130,90,1);*/       
+                background: rgba(0,0,96,0.5);
             }
             ::-webkit-scrollbar-thumb {
-                border-radius: 10px;
+                border-radius: 8px;
                 -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6); 
             }
             #schenkenBlackBox {
