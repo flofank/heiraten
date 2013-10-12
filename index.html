@@ -16,11 +16,11 @@
 							}, 2000);
 					event.preventDefault();
 				});
-		$('.kategorie>.head').click(function(event) {
-			$('.kategorie>.body').slideUp();
+		$('.kategorie>.head').click(function() {
+//			$('.kategorie>.body').slideUp();
 			$(this).parent('.kategorie').children('.body').slideToggle();
 		});
-		$('.wunsch').click(function(event) {
+		$('.wunsch').click(function() {
 			$('#schenkenBlackBox').show();
 		})
 	});
@@ -29,60 +29,122 @@
 <body>
 	<header> </header>
 	<nav>
-		<a href="#abschnitt1">Willkommen</a>
-                <a href="#abschnitt2">Der Tag</a> 
-                <a href="#abschnitt3">Dabei sein</a> 
-                <a href="#abschnitt4">Die Helden</a> 
-                <a href="#geschenke">Das Paar</a> 
-                <a href="#abschnitt6">Die Nachfrage</a>
+		<a href="#willkommen">Willkommen</a>
+                <a href="#dertag">Der Tag</a> 
+                <a href="#dabeisein">Dabei sein</a> 
+                <a href="#diehelden">Die Helden</a> 
+                <a href="#daspaar">Das Paar</a> 
+                <a href="#geschenke">Die Nachfrage</a>
 	</nav>
 	<div id="scrollBoxContainer">
 		<div id="scrollBox">
 			<div id="content">
-				<section>
+				<section class="img">
 					<img src="img/8.jpg">
 				</section>
 				<section class="text">
-					<a id="abschnitt1"><h1>Willkommen</h1></a>
-                                        Irgendein kleiner Blabla-Text.
+					<a id="willkommen"><h1>Willkommen</h1></a>
+					<div class="kategorie">
+						<div class="head">Kategorie 1</div>
+						<div class="body">
+							<div class="wunsch">
+                                                                <span class="title">Wunsch 1</span>
+                                                                <img src="img/placeholder.png" />
+                                                                <div>200 von 500.-</div>
+							</div>
+							<div class="wunsch">
+								<span class="title">Wunsch 1</span>
+                                                                <img src="img/placeholder.png" />
+                                                                <div>200 von 500.-</div>
+                                                                <div class="progressbar">
+                                                                    <div class="progress"></div>
+                                                                </div>
+							</div>
+							<div class="wunsch">
+								<span class="title">Wunsch 1</span>
+                                                                <img src="img/placeholder.png" />
+                                                                <div>200 von 500.-</div>
+							</div>
+						</div>
+					</div>
+					<div class="kategorie">
+						<div class="head">Kategorie 2</div>
+						<div class="body">
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+						</div>
+					</div>
+					<div class="kategorie">
+						<div class="head">Kategorie 3</div>
+						<div class="body">
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+						</div>
+					</div>
+					<div class="kategorie">
+						<div class="head">Kategorie 4</div>
+						<div class="body">
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+						</div>
+					</div>
+					<div class="kategorie">
+						<div class="head">Kategorie 5</div>
+						<div class="body">
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+							<div class="wunsch">Wunsch 1</div>
+						</div>
+					</div>
 				</section>
-				<section>
+				<section class="img">
 					<img src="img/1.jpg">
 				</section>
 				<section class="text">
-					<a id="abschnitt2"><h1>Alles zur Hochzeit</h1></a> 
+					<a id="dertag"><h1>Alles zur Hochzeit</h1></a> 
                                         Info zur Idee, dabeisein, so viel man mag und möchte
                                         Ablauf des Tages
                                         Ort, Zeit, und Zufahrt
                                         Fest am Abend in der Region Aarau
 				</section>
-				<section>
+				<section class="img">
 					<img src="img/2.jpg">
 				</section>
 				<section class="text">
-					<a id="abschnitt3"><h1>Anmeldeformular</h1></a> 
+					<a id="dabeisein"><h1>Anmeldeformular</h1></a> 
                                         Teilnahme am ganzen Fest
                                         Nach Anmeldung Mail mit Bestätigung und Hinweis dass Beiträge beim Brautfüh-rerteam 
                                         Anmeldung Cupcakes oder Muffins (klein oder gross) Sorte.
                                         Wir freuen uns auf die kreativen Dekos
 				</section>
-				<section>
+				<section class="img">
 					<img src="img/5.jpg">
 				</section>
 				<section class="text">
-					<a id="abschnitt4"><h1>Organisation</h1></a> 
+					<a id="diehelden"><h1>Organisation</h1></a> 
                                         Kurzüberblick Trauzeugen
                                         Kurzüberblick OK 
 				</section>
-				<section>
+				<section class="img">
 					<img src="img/7.jpg">
 				</section>
 				<section class="text">
-					<a id="abschnitt6"><h1>Wer sind die 2?</h1></a>
+					<a id="daspaar"><h1>Wer sind die 2?</h1></a>
                                         Je noch dem was Gäst a Dessert oder Salat no chöne metbrenge :)
                                         Gemäss separatem Exel.
 				</section>
-				<section class="last high">
+				<section class="img high">
 					<img src="img/15.jpg">
 				</section>
 				<section class="text">
@@ -147,9 +209,8 @@
 							<div class="wunsch">Wunsch 1</div>
 						</div>
 					</div>
-					</p>
 				</section>
-				<section class="high">
+				<section class="img last high">
 					<img src="img/12.jpg">
 				</section>
 			</div>
