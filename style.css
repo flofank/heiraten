@@ -110,63 +110,30 @@ section.last {
     margin-right: 0;
 }
 section>img {
-    width: 675px;
+    /*width: 675px;*/
     height: 480px;
+}
+section.high>img {
+    width: 338px;
 }
 section>a>h1 {
     margin-top: 0px;
     margin-bottom: 10px;
 }
 
-.kategorie {
-
+section>div.kategorie:hover {
+    border: 1px solid rgba(0,0,0,0.2);
+    background: rgba(200,200,200,0.1);
 }
-.kategorie>.head {
+
+section>div.kategorie {
     display: block;
-    margin-bottom: 4px;
-    padding: 2px;
-    padding-left: 10px;
-    background: rgba(255,255,255,0.4);
-    box-shadow: inset 1px 1px 2px 0px #FFF;
-    border-radius: 3px;
-    cursor: pointer;
-}
-.kategorie>.head:hover {
-    box-shadow: inset 1px 1px 1px 0px #000;
-
-}
-.kategorie>.body {
-    display: none;
-    width: 100%;
-    padding: 5px;
-    margin-bottom: 8px;
-    background: rgba(255,255,255,0.2);
-    box-shadow: inset 1px 1px 2px 0px #FFF;
-    border-radius: 3px;
-    text-align: center;
-}
-.wunsch>span.title {
-    font-size: 16pt;
-}
-.wunsch {
-    display: inline-block;
-    background: #FFF;
-    width: 190px;
-    height: 250px;
-    margin: 4px;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.3);
+    border-radius: 2px;
     padding: 4px;
-    text-align: center;
-    color: rgba(135,130,90,1);
-    box-shadow: 1px 1px 0px 0px #444;
+    margin-bottom: 6px;
     cursor: pointer;
-}
-.wunsch:hover {
-    background: rgba(240,240,240,1);
-}
-
-.wunsch>img {
-    max-width: 80%;
-    max-height: 60%;
 }
 
 .progressbar {
@@ -209,47 +176,6 @@ section>a>h1 {
     border: 2px solid white;
     padding: 10px;
     /*color: rgba(135,130,90,1);*/
-}
-#schenken>h1 {
-    margin-top: 0;
-}
-#schenken>span {
-
-}
-#schenken>form {
-    margin-top: 20px;
-    background: rgba(0,0,0,0.2);
-    border: 1px solid #FFF;
-    padding: 8px;
-}
-#schenken_betrag, #schenken_email, #schenken_ok, #schenken_cancel {
-    border: 1px solid rgba(135,130,90,1);
-    border-radius: 3px;
-    padding: 3px 12px;
-    background: #FFF;
-    margin: 3px 3px 3px 0px;
-}
-#schenken_betrag {
-    width: 60px;
-    text-align: right;
-}
-#schenken_ok, #schenken_cancel {
-    cursor: pointer;
-}
-#schenken_ok:hover, #schenken_cancel:hover {
-    background: #CCC;
-}
-#schenken_total {
-
-}
-#schenken_rest {
-
-}
-#schenken_form {
-
-}
-#schenken_betrag {
-
 }
 
 
