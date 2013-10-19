@@ -3,6 +3,7 @@
 <head>
 <script src="js/jquery.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="wuensche.css" />
 <script>
 	$(function() {
 		$('nav a').click(
@@ -23,7 +24,21 @@
 		$('.wunsch').click(function() {
 			$('#schenkenBlackBox').show();
 		})
+                $('#wunschlisteContainer').click(function(event) {
+                   if (event.originalEvent.srcElement == this) {
+                        $("#wunschlisteContainer").hide();                       
+                   } 
+                });
 	});
+        
+        
+        function showCategory(cat) {
+            $("#wunschlisteContainer").show();
+            $(".kategoriebody").hide();
+            $("#" + cat).show();
+            $(".kategorielink.selected").removeClass("selected");
+            $("#" + cat + "link").addClass("selected");
+        }
 </script>
 </head>
 <body>
@@ -87,11 +102,11 @@
 				</section>
 				<section class="text high">
 					<a id="geschenke"><h1>W&uuml;nsche</h1></a>
-                                        <div class="kategorie">Kategorie 1</div>
-                                        <div class="kategorie">Kategorie 2</div>
-                                        <div class="kategorie">Kategorie 3</div>
-                                        <div class="kategorie">Kategorie 4</div>
-                                        <div class="kategorie">Kategorie 5</div>
+                                        <div class="kategorie" onclick="showCategory('kategorie1')">Kategorie 1</div>
+                                        <div class="kategorie" onclick="showCategory('kategorie2')">Kategorie 2</div>
+                                        <div class="kategorie" onclick="showCategory('kategorie3')">Kategorie 3</div>
+                                        <div class="kategorie" onclick="showCategory('kategorie4')">Kategorie 4</div>
+                                        <div class="kategorie" onclick="showCategory('kategorie5')">Kategorie 5</div>
 				</section>
 				<section class="img last high">
 					<img src="img/12.jpg">
@@ -128,5 +143,146 @@
 			</form>
 		</div>
 	</div>
+        
+        
+        
+    <!--
+        Wunschliste Lightbox von hier an
+    -->
+    <div id="wunschlisteContainer" style="display: none">
+        <div id="wunschliste" >
+            <div id="kategorien">
+                <div class="kategorielink selected" id="kategorie1link" onclick="showCategory('kategorie1')">Kategorie 1</div>
+                <div class="kategorielink" id="kategorie2link" onclick="showCategory('kategorie2')">Kategorie 2</div>
+                <div class="kategorielink" id="kategorie3link" onclick="showCategory('kategorie3')">Kategorie 3</div>
+                <div class="kategorielink" id="kategorie4link" onclick="showCategory('kategorie4')">Kategorie 4</div>
+                <div class="kategorielink" id="kategorie5link" onclick="showCategory('kategorie5')">Kategorie 5</div>
+            </div>
+            <div id="wuensche">
+                <div id="kategorie1" class="kategoriebody">
+                    <div class="kategorietitle">Kategorie 1</div>
+                    <div class="wunsch">
+                        <div class="title">Wunsch 1</div>
+                        <img src="img/placeholder.png"/>
+                        <div class="right">
+                            <div class="beschreibung">
+                                asdfjajdsfaljdsf löj aföjdsa jkhsdfjkl hasdlahfjksahf kjhasdf lahjdsf lhdas                        
+                            </div>
+                            <div class="progressbar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>                    
+                        <div class="schenken">
+                            <form>
+                                Ich will <input type="number" placeholder="Betrag">CHF schenken.
+                                Meine Mailadresse ist <input type="email" placeholder="Mailadresse">.
+                                <input type="button" value="Los!">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="wunsch">
+                        <div class="title">Wunsch 1</div>
+                        <img src="img/placeholder.png"/>
+                        <div class="right">
+                            <div class="beschreibung">
+                                asdfjajdsfaljdsf löj aföjdsa jkhsdfjkl hasdlahfjksahf kjhasdf lahjdsf lhdas                        
+                            </div>
+                            <div class="progressbar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>                    
+                        <div class="schenken">
+                            <form>
+                                Ich will <input type="number">CHF schenken.
+                                Meine Mailadresse ist <input type="email">.
+                                <input type="button" value="Los!">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="wunsch">
+                        <div class="title">Wunsch 1</div>
+                        <img src="img/placeholder.png"/>
+                        <div class="right">
+                            <div class="beschreibung">
+                                asdfjajdsfaljdsf löj aföjdsa jkhsdfjkl hasdlahfjksahf kjhasdf lahjdsf lhdas                        
+                            </div>
+                            <div class="progressbar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>                    
+                        <div class="schenken">
+                            <form>
+                                Ich will <input type="number">CHF schenken.
+                                Meine Mailadresse ist <input type="email">.
+                                <input type="button" value="Los!">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="kategorie2" class="kategoriebody" style="display: none">
+                    <div class="kategorietitle">Kategorie 2</div>
+                    <div class="wunsch">
+                        <div class="title">Wunsch 1</div>
+                        <img src="img/placeholder.png"/>
+                        <div class="right">
+                            <div class="beschreibung">
+                                aasd fasd fas dfasd fasd fasdfas dfas                     
+                            </div>
+                            <div class="progressbar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>                    
+                        <div class="schenken">
+                            <form>
+                                Ich will <input type="number" placeholder="Betrag">CHF schenken.
+                                Meine Mailadresse ist <input type="email" placeholder="Mailadresse">.
+                                <input type="button" value="Los!">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="wunsch">
+                        <div class="title">Wunsch 1</div>
+                        <img src="img/placeholder.png"/>
+                        <div class="right">
+                            <div class="beschreibung">
+                                asdfjajdsfaljdsf asd fas dfas fasd faskjhasdf lahjdsf lhdas                        
+                            </div>
+                            <div class="progressbar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>                    
+                        <div class="schenken">
+                            <form>
+                                Ich will <input type="number">CHF schenken.
+                                Meine Mailadresse ist <input type="email">.
+                                <input type="button" value="Los!">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="wunsch">
+                        <div class="title">Wunsch 1</div>
+                        <img src="img/placeholder.png"/>
+                        <div class="right">
+                            <div class="beschreibung">
+                                asdfjajdsfaljdsf löj aföjdsa jkhsdfjkl hasdlahfjksahf kjhasdf lahjdsf lhdas                        
+                            </div>
+                            <div class="progressbar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>                    
+                        <div class="schenken">
+                            <form>
+                                Ich will <input type="number">CHF schenken.
+                                Meine Mailadresse ist <input type="email">.
+                                <input type="button" value="Los!">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
 </body>
 </html>

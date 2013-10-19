@@ -7,6 +7,15 @@ and open the template in the editor.
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/jquery.js"></script>
+        <script>
+            function showCategory(caller,cat) {
+                $(".kategoriebody").hide();
+                $("#" + cat).show();
+                $(".kategorielink.selected").removeClass("selected");
+                $(caller).addClass("selected");
+            }
+        </script>
         <style>
             body {
                 width: 100%;
@@ -42,12 +51,9 @@ and open the template in the editor.
             .wunsch>img {
                 height: 80px;
                 float: left;
-                margin: 8px 8px 8px 2px;
+                margin: 0px 8px 8px 2px;
             }
-            kategorie {
-                margin-top: 1px;
-            }
-            .kategorie {
+            .kategorielink {
                 margin-bottom: 2px;
                 margin-right: 1px;
                 background: rgba(255,255,255,0.95);
@@ -55,21 +61,27 @@ and open the template in the editor.
                 border-radius: 4px 0px 0px 4px;
                 cursor: pointer;
             }
-            .kategorie.selected {
+            .kategorielink.selected {
                 margin-right: 0px;
                 background: rgba(255,255,255,1);
             }
-            .kategorie:hover {
+            .kategorielink:hover {
                 background: rgba(255,255,255,1);
+            }
+            .kategorietitle {
+                margin: 20px;
+                font-size: 200%;
             }
             .wunsch>.title {
                 padding-bottom: 0px;
                 border-bottom: 1px solid rgba(0,0,0,0.05);
                 width: 150px;
+                margin-bottom: 8px;
             }
             .beschreibung {
                 float: left;
-                margin: 8px;
+                margin: 0px;
+                height: 58px;
             }
             .schenken {
                 clear: both;
@@ -88,104 +100,163 @@ and open the template in the editor.
                 border: 1px solid rgba(0,0,0,0.2);
                 margin: 8px;
             }
+            .progressbar {
+                border: 1px solid rgba(0,0,0,0.3);
+                height: 20px;
+                float: left;
+                width: 100%;
+                margin-right: 0px;
+            }
+            .progress {
+                margin: 1px;
+                width: 80%;
+                background: green;
+                height: 18px;
+            }
+            .right {
+                float: right;
+                width: 560px;
+                height: 80px;
+                margin: 0px 2px 8px 8px;
+            }
+            .hidden {
+                display: none
+            }
         </style>
     </head>
     <body>
         <div id="wunschliste">
             <div id="kategorien">
-                <div class="kategorie selected">Kategorie 1</div>
-                <div class="kategorie">Kategorie 1</div>
-                <div class="kategorie">Kategorie 1</div>
-                <div class="kategorie">Kategorie 1</div>
-                <div class="kategorie">Kategorie 1</div>
+                <div class="kategorielink selected" onclick="showCategory(this,'kategorie1')">Kategorie 1</div>
+                <div class="kategorielink" onclick="showCategory(this,'kategorie2')">Kategorie 2</div>
+                <div class="kategorielink" onclick="showCategory(this,'kategorie3')">Kategorie 3</div>
+                <div class="kategorielink" onclick="showCategory(this,'kategorie4')">Kategorie 4</div>
+                <div class="kategorielink" onclick="showCategory(this,'kategorie5')">Kategorie 5</div>
             </div>
             <div id="wuensche">
-                <div class="wunsch">
-                    <div class="title">Wunsch 1</div>
-                    <img src="img/placeholder.png"/>
-                    <div class="beschreibung">
-                        asdfjajdsfaljdsf löj aföjdsa jkhsdfjkl hasdlahfjksahf kjhasdf lahjdsf lhdas                        
-                    </div>
-                    <div class="schenken">
-                        <div class="progressbar">
-                            <div class="progress"></div>
+                <div id="kategorie1" class="kategoriebody">
+                    <div class="kategorietitle">Kategorie 1</div>
+                    <div class="wunsch">
+                        <div class="title">Wunsch 1</div>
+                        <img src="img/placeholder.png"/>
+                        <div class="right">
+                            <div class="beschreibung">
+                                asdfjajdsfaljdsf löj aföjdsa jkhsdfjkl hasdlahfjksahf kjhasdf lahjdsf lhdas                        
+                            </div>
+                            <div class="progressbar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>                    
+                        <div class="schenken">
+                            <form>
+                                Ich will <input type="number" placeholder="Betrag">CHF schenken.
+                                Meine Mailadresse ist <input type="email" placeholder="Mailadresse">.
+                                <input type="button" value="Los!">
+                            </form>
                         </div>
-                        <form>
-                            Ich will <input type="number">CHF schenken.
-                            Meine Mailadresse ist <input type="email">.
-                            <input type="button" value="Los!">
-                        </form>
+                    </div>
+                    <div class="wunsch">
+                        <div class="title">Wunsch 1</div>
+                        <img src="img/placeholder.png"/>
+                        <div class="right">
+                            <div class="beschreibung">
+                                asdfjajdsfaljdsf löj aföjdsa jkhsdfjkl hasdlahfjksahf kjhasdf lahjdsf lhdas                        
+                            </div>
+                            <div class="progressbar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>                    
+                        <div class="schenken">
+                            <form>
+                                Ich will <input type="number">CHF schenken.
+                                Meine Mailadresse ist <input type="email">.
+                                <input type="button" value="Los!">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="wunsch">
+                        <div class="title">Wunsch 1</div>
+                        <img src="img/placeholder.png"/>
+                        <div class="right">
+                            <div class="beschreibung">
+                                asdfjajdsfaljdsf löj aföjdsa jkhsdfjkl hasdlahfjksahf kjhasdf lahjdsf lhdas                        
+                            </div>
+                            <div class="progressbar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>                    
+                        <div class="schenken">
+                            <form>
+                                Ich will <input type="number">CHF schenken.
+                                Meine Mailadresse ist <input type="email">.
+                                <input type="button" value="Los!">
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <div class="wunsch">
-                    <div class="title">Wunsch 1</div>
-                    <img src="img/placeholder.png"/>
-                    <div class="beschreibung">
-                        asdfjajdsfaljdsf löj aföjdsa jkhsdfjkl hasdlahfjksahf kjhasdf lahjdsf lhdas                        
-                    </div>
-                    <div class="schenken">
-                        <div class="progressbar">
-                            <div class="progress"></div>
+                
+                <div id="kategorie2" class="kategoriebody" style="display: none">
+                    <div class="kategorietitle">Kategorie 2</div>
+                    <div class="wunsch">
+                        <div class="title">Wunsch 1</div>
+                        <img src="img/placeholder.png"/>
+                        <div class="right">
+                            <div class="beschreibung">
+                                aasd fasd fas dfasd fasd fasdfas dfas                     
+                            </div>
+                            <div class="progressbar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>                    
+                        <div class="schenken">
+                            <form>
+                                Ich will <input type="number" placeholder="Betrag">CHF schenken.
+                                Meine Mailadresse ist <input type="email" placeholder="Mailadresse">.
+                                <input type="button" value="Los!">
+                            </form>
                         </div>
-                        <form>
-                            Ich will <input type="number">CHF schenken.
-                            Meine Mailadresse ist <input type="email">.
-                            <input type="button" value="Los!">
-                        </form>
+                    </div>
+                    <div class="wunsch">
+                        <div class="title">Wunsch 1</div>
+                        <img src="img/placeholder.png"/>
+                        <div class="right">
+                            <div class="beschreibung">
+                                asdfjajdsfaljdsf asd fas dfas fasd faskjhasdf lahjdsf lhdas                        
+                            </div>
+                            <div class="progressbar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>                    
+                        <div class="schenken">
+                            <form>
+                                Ich will <input type="number">CHF schenken.
+                                Meine Mailadresse ist <input type="email">.
+                                <input type="button" value="Los!">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="wunsch">
+                        <div class="title">Wunsch 1</div>
+                        <img src="img/placeholder.png"/>
+                        <div class="right">
+                            <div class="beschreibung">
+                                asdfjajdsfaljdsf löj aföjdsa jkhsdfjkl hasdlahfjksahf kjhasdf lahjdsf lhdas                        
+                            </div>
+                            <div class="progressbar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>                    
+                        <div class="schenken">
+                            <form>
+                                Ich will <input type="number">CHF schenken.
+                                Meine Mailadresse ist <input type="email">.
+                                <input type="button" value="Los!">
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <div class="wunsch">
-                    <div class="title">Wunsch 1</div>
-                    <img src="img/placeholder.png"/>
-                    <div class="beschreibung">
-                        asdfjajdsfaljdsf löj aföjdsa jkhsdfjkl hasdlahfjksahf kjhasdf lahjdsf lhdas                        
-                    </div>
-                    <div class="schenken">
-                        <div class="progressbar">
-                            <div class="progress"></div>
-                        </div>
-                        <form>
-                            Ich will <input type="number">CHF schenken.
-                            Meine Mailadresse ist <input type="email">.
-                            <input type="button" value="Los!">
-                        </form>
-                    </div>
-                </div>
-                <div class="wunsch">
-                    <div class="title">Wunsch 1</div>
-                    <img src="img/placeholder.png"/>
-                    <div class="beschreibung">
-                        asdfjajdsfaljdsf löj aföjdsa jkhsdfjkl hasdlahfjksahf kjhasdf lahjdsf lhdas                        
-                    </div>
-                    <div class="schenken">
-                        <div class="progressbar">
-                            <div class="progress"></div>
-                        </div>
-                        <form>
-                            Ich will <input type="number">CHF schenken.
-                            Meine Mailadresse ist <input type="email">.
-                            <input type="button" value="Los!">
-                        </form>
-                    </div>
-                </div>
-                <div class="wunsch">
-                    <div class="title">Wunsch 1</div>
-                    <img src="img/placeholder.png"/>
-                    <div class="beschreibung">
-                        asdfjajdsfaljdsf löj aföjdsa jkhsdfjkl hasdlahfjksahf kjhasdf lahjdsf lhdas                        
-                    </div>
-                    <div class="schenken">
-                        <div class="progressbar">
-                            <div class="progress"></div>
-                        </div>
-                        <form>
-                            Ich will <input type="number">CHF schenken.
-                            Meine Mailadresse ist <input type="email">.
-                            <input type="button" value="Los!">
-                        </form>
-                    </div>
-                </div>
-            </div>    
+                
+            </div>
         </div>
     </body>
 </html>
