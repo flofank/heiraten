@@ -20,6 +20,7 @@
 #wunschliste {
     width: 900px;
     min-height: 200px;
+    max-height: 80%;
     display: block;
     margin: 0 auto;
 }
@@ -32,7 +33,9 @@
 #wuensche {
     display: block;
     width: 80%;
+    max-height: 100%;
     background: white;
+    overflow: auto;
     float: left;
 }
 .wunsch {
@@ -103,7 +106,6 @@
 }
 .progress {
     margin: 1px;
-    width: 80%;
     background: green;
     height: 18px;
 }
