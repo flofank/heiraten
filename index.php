@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+    $db = mysql_connect('localhost', 'web145', '*tXm&2y0C*6R');    
+    mysql_select_db('usr_web145_12', $db);
+
+?>
 <html>
     <head>
         <script src="js/jquery.js"></script>
@@ -99,11 +104,13 @@
                     </section>
                     <section class="text high">
                         <a id="geschenke"><h1>W&uuml;nsche</h1></a>
-                        <div class="kategorie" onclick="showCategory('kategorie1')">Kategorie 1</div>
-                        <div class="kategorie" onclick="showCategory('kategorie2')">Kategorie 2</div>
-                        <div class="kategorie" onclick="showCategory('kategorie3')">Kategorie 3</div>
-                        <div class="kategorie" onclick="showCategory('kategorie4')">Kategorie 4</div>
-                        <div class="kategorie" onclick="showCategory('kategorie5')">Kategorie 5</div>
+                        <?php
+                            $res = mysql_query("select * from kategorie order by id");
+                            $kategorien = array();
+                            while ($kategorie = mysql_fetch_assoc($res)) {
+                                echo "<div class=\"kategorie\" onclick=\"showCategory('kategorie" . $kategorie['id'] . "')\">" . $kategorie['name'] . "</div>";
+                            }
+                        ?>
                     </section>
                     <section class="img last high">
                         <img src="img/12.jpg">
@@ -122,38 +129,38 @@
         <div id="wunschlisteContainer" style="display: none">
             <div id="wunschliste" >
                 <div id="kategorien">
-                    <div class="kategorielink selected" id="kategorie1link" onclick="showCategory('kategorie1')">Kategorie 1</div>
-                    <div class="kategorielink" id="kategorie2link" onclick="showCategory('kategorie2')">Kategorie 2</div>
-                    <div class="kategorielink" id="kategorie3link" onclick="showCategory('kategorie3')">Kategorie 3</div>
-                    <div class="kategorielink" id="kategorie4link" onclick="showCategory('kategorie4')">Kategorie 4</div>
-                    <div class="kategorielink" id="kategorie5link" onclick="showCategory('kategorie5')">Kategorie 5</div>
+                    <?php
+                        $res = mysql_query("select * from kategorie order by id");
+                        $kategorien = array();
+                        while ($kategorie = mysql_fetch_assoc($res)) {
+                            echo "<div class=\"kategorielink\" id=\"kategorie" . $kategorie['id'] . "link\" onclick=\"showCategory('kategorie" . $kategorie['id'] . "')\">" . $kategorie['name'] . "</div>";
+                        }
+                    ?>
                 </div>
                 <div id="wuensche">
-                    <?php
-                        $db = mysql_connect('localhost', 'web145', '*tXm&2y0C*6R');    
-                        mysql_select_db('usr_web145_12', $db);
-
-                        $res = mysql_query("select * from wunschliste order by kategorie, id asc");
-                        $wunschliste = array();
-                        while ($row = mysql_fetch_assoc($res)) {
-                            $wunschliste[] = $row;
-                        }
-                        mysql_error();
-
-                        $kategorie = 1;
-                        echo "<div id=\"kategorie$kategorie\" class=\"kategoriebody\"><div class=\"kategorietitle\">Kategorie 1</div>";
-                        foreach ($wunschliste as $wunsch) {
-                            echo "<div class=\"wunsch\">";
-                            echo "<div class=\"title\">" . $wunsch['name'] . "</div>";
-                            echo "<img src=\"img/placeholder.png\"/>";
-                            echo "<div class=\"right\">";
-                            echo "<div class=\"beschreibung\">" . $wunsch['beschreibung'] . "</div>";
-                            echo "<div class=\"progressbar\"><div class=\"progress\" style=\"width: " . ($wunsch['bisher'] / $wunsch['ziel'] * 100) . "%\"></div></div>";
-                            echo "</div>";                
-                            echo "<div class=\"schenken\">";
-                            echo "<form>Ich will <input type=\"number\" placeholder=\"Betrag\">CHF schenken.";
-                            echo "Meine Mailadresse ist <input type=\"email\" placeholder=\"Mailadresse\">.";
-                            echo "<input type=\"button\" value=\"Los!\"></form></div></div>";
+                    <?php                        
+                        $res = mysql_query("select * from kategorie order by id");
+                        $kategorien = array();
+                        while ($kategorie = mysql_fetch_assoc($res)) {
+                            $result = mysql_query("select * from wunschliste where kategorie = " . $kategorie['id'] . " order by id asc");
+                            $wunschliste = array();
+                            echo "<div id=\"kategorie" . $kategorie['id'] . "\" class=\"kategoriebody\"><div class=\"kategorietitle\">" . $kategorie['name'] . "</div>";
+                            
+                            while ($wunsch = mysql_fetch_assoc($result)) {
+                                echo "<div class=\"wunsch\">";
+                                echo "<div class=\"title\">" . $wunsch['name'] . "</div>";
+                                echo "<img src=\"img/placeholder.png\"/>";
+                                echo "<div class=\"right\">";
+                                echo "<div class=\"beschreibung\">" . $wunsch['beschreibung'] . "</div>";
+                                echo "<div class=\"progressbar\"><div class=\"progress\" style=\"width: " . ($wunsch['bisher'] / $wunsch['ziel'] * 100) . "%\"></div></div>";
+                                echo "</div>";                
+                                echo "<div class=\"schenken\">";
+                                echo "<form>Ich will <input type=\"number\" placeholder=\"Betrag\">CHF schenken.";
+                                echo " Meine Mailadresse ist <input type=\"email\" placeholder=\"Mailadresse\">.";
+                                echo "<input type=\"button\" value=\"Los!\"></form></div></div>";                                
+                            }
+                            
+                            echo "</div>";
                         }
                     ?>
                 </div>
