@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <?php
-    $db = mysql_connect('localhost', 'web145', '*tXm&2y0C*6R');    
-    mysql_select_db('usr_web145_12', $db);
-
+    include('scripts.php');
 ?>
 <html>
     <head>
         <script src="js/jquery.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css" />
-        <link rel="stylesheet" type="text/css" href="wuensche.css" />
         <script>
             $(function() {
+                var message = '<?php echo $MESSAGE;?>';
+                if (message != '') {
+                    alert(message);
+                }
+                
                 $('nav a').click(
                         function(event) {
                             $("#scrollBox").stop().animate(
@@ -152,12 +154,13 @@
                                 echo "<img src=\"img/placeholder.png\"/>";
                                 echo "<div class=\"right\">";
                                 echo "<div class=\"beschreibung\">" . $wunsch['beschreibung'] . "</div>";
+                                echo "CHF " . $wunsch['bisher'] . " von CHF " . $wunsch['ziel'] . " erreicht.";
                                 echo "<div class=\"progressbar\"><div class=\"progress\" style=\"width: " . ($wunsch['bisher'] / $wunsch['ziel'] * 100) . "%\"></div></div>";
                                 echo "</div>";                
                                 echo "<div class=\"schenken\">";
-                                echo "<form>Ich will <input type=\"number\" placeholder=\"Betrag\">CHF schenken.";
-                                echo " Meine Mailadresse ist <input type=\"email\" placeholder=\"Mailadresse\">.";
-                                echo "<input type=\"button\" value=\"Los!\"></form></div></div>";                                
+                                echo "<form action=\"index.php\" method=\"post\">Ich will <input type=\"number\" placeholder=\"Betrag\" name=\"betrag\" min=\"0\" max=\"" . ($wunsch['ziel'] - $wunsch['bisher']) . "\">CHF schenken.";
+                                echo " Meine Mailadresse ist <input type=\"email\" name=\"mail\" placeholder=\"Mailadresse\">.";
+                                echo "<input type=\"hidden\" name=\"wunschID\" value=\"" . $wunsch['id'] . "\"/><input type=\"submit\" value=\"Los!\"></form></div></div>";                                
                             }
                             
                             echo "</div>";
