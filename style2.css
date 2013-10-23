@@ -4,17 +4,10 @@ html, body, div, span, a, h, img, section, nav {
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
 }
-
-
 html {
     margin: 0;
     padding: 0;
-
-    background: rgba(199,219,244,1);
-    background-image: url('img/bg_left_top.png');
-    background-position: 0px -20px;
-    background-size: 600px auto;
-    background-repeat: no-repeat;
+    /*background: rgba(199,219,244,0.2);*/
     font-family: Arial;
     font-size: 11pt;
 }
@@ -24,26 +17,14 @@ body {
     padding-top: 75px;
 
 }
-footer {
-    width: 100%;
-    height: 100%;
-    background-image: url('img/bg_right_bottom.png');
-    background-position: bottom right;
-    background-size: auto 400px;
-    background-repeat: no-repeat;
-    position: absolute;
-    bottom: 0px;
-    z-index: -1;
-}
-
 nav {
     /*width: 100%;*/
     padding: 3px 9px 9px 3px;
     font-size: 12pt;
     display: inline-block;
     margin-left: 200px;
-    border: 3px solid rgba(255,255,255,0.6);
-    /*border: 3px solid rgba(199,219,244,1);*/    
+    /*border: 3px solid rgba(255,255,255,0.6);*/
+    border: 3px solid rgba(199,219,244,1);    
     border-right: 0px;
     border-bottom: 0px;
     border-radius: 6px 12px 0px 12px;
@@ -53,7 +34,8 @@ nav>a {
     float: left;
     padding: 3px;
     margin-right: 3px;
-    background: rgba(255,255,255,0.2);
+    /*background: rgba(255,255,255,0.2);*/
+    background: rgba(199,219,244,0.1);
     color: rgba(135,130,90,1);
     text-decoration: none;
     font-weight: bold;
@@ -79,9 +61,9 @@ nav>a:hover {
 section {
     width: 675px;
     height: 480px;
-    background: rgba(255,255,255,0.6);    
+    color: rgba(255,255,255,0.9);    
     display: block;
-    color: rgba(45,45,25,1);
+    background: rgba(45,45,25,1);
     float: left;
     margin-right: 10px;
     overflow-y: auto;
@@ -124,6 +106,27 @@ section>div.kategorie {
     margin-bottom: 6px;
     cursor: pointer;
 }
+
+/*#schenkenBlackBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    background: rgba(0,0,0,0.7);
+    display: none;
+}
+#schenken {
+    width: 600px;
+    min-height: 200px;
+    background: #FFF;
+    margin: 0 auto;
+    margin-top: 100px;
+    background: rgba(199,219,244,1);
+    border: 2px solid white;
+    padding: 10px;
+}*/
 
 .hidden {
     display: none
@@ -237,7 +240,7 @@ input {
     border: 1px solid rgba(0,160,0,1);
     height: 20px;
     display: inline-block;
-    width: 400px;
+    width: 60%;
     float: right;
     margin-right: 0px;
 }

@@ -2,32 +2,36 @@
 <html>
 <head>
 <script src="js/jquery.js"></script>
+<script src="js/jquery.mousewheel.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css" />
 <link rel="stylesheet" type="text/css" href="wuensche.css" />
 <script>
 	$(function() {
-		$('nav a').click(
-				function(event) {
-					$("#scrollBox").stop().animate(
-							{
-								scrollLeft : $($(this).attr('href')).parent(
-										'section').offset().left
-										+ $('#scrollBox').scrollLeft()
-										- $('#scrollBox').offset().left
-							}, 2000);
-					event.preventDefault();
-				});
+		$('nav a').click(function(event) {
+                    $("#scrollBox").stop().animate(
+                    {
+                        scrollLeft : $($(this).attr('href')).parent(
+                            'section').offset().left
+                            + $('#scrollBox').scrollLeft()
+                            - $('#scrollBox').offset().left
+                    }, 2000);
+                    event.preventDefault();
+                });
 		$('.kategorie>.head').click(function() {
-//			$('.kategorie>.body').slideUp();
-			$(this).parent('.kategorie').children('.body').slideToggle();
+                    $(this).parent('.kategorie').children('.body').slideToggle();
 		});
 		$('.wunsch').click(function() {
-			$('#schenkenBlackBox').show();
+                    $('#schenkenBlackBox').show();
 		})
                 $('#wunschlisteContainer').click(function(event) {
                    if (event.originalEvent.srcElement == this) {
                         $("#wunschlisteContainer").hide();                       
                    } 
+                });   
+                $("body").mousewheel(function(event, delta) {
+                    $("#scrollBox").scrollLeft(delta * 30);
+                    event.preventDefault();
+                    console.log(delta);
                 });
 	});
         
