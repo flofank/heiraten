@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <?php
     include('scripts.php');
 ?>
@@ -21,7 +21,22 @@
                 $("#" + cat + "link").addClass("selected");
             }
             
-            $(function() {                
+            function selectNavLinks() {
+                $("a").each(function(index, el) {$(el).removeClass("selected")});
+                $("section.text").each(function(index, element) {
+                    if ($(element).offset().left > 0 && $(element).offset().left < $("#scrollBox").width() - 200) {                            
+                        $("a[href=#" + $(element).children("a").prop("id") + "]").addClass("selected");
+                    }
+                });
+            }
+            
+            function hideWunschliste() {
+                $("#wunschlisteContainer").hide();                
+            }
+            
+            $(function() {      
+                selectNavLinks();          
+                
                 <?php
                     if ($kategorieID >= 0) {
                         echo "showCategory('kategorie" . $kategorieID . "');";
@@ -35,22 +50,27 @@
                                 'section').offset().left
                                 + $('#scrollBox').scrollLeft()
                                 - $('#scrollBox').offset().left
+                                - $("html").width() / 2  + $("section").first().width() / 2 
                         }, 2000);
                     event.preventDefault();
+                    console.log();
                 });
-                $('.kategorie>.head').click(function() {
-                    //			$('.kategorie>.body').slideUp();
-                    $(this).parent('.kategorie').children('.body').slideToggle();
-                });
+                
                 $('#wunschlisteContainer').click(function(event) {
                     if (event.originalEvent.srcElement == this) {
-                        $("#wunschlisteContainer").hide();
+                        hideWunschliste();
                     }
                 });   
+                
                 $("body").mousewheel(function(event, delta) {
                     $("#scrollBox").scrollLeft($("#scrollBox").scrollLeft() - delta * 50);
                     event.preventDefault();
                 });
+                
+                $("#scrollBox").scroll(function() {
+                    selectNavLinks();
+                });
+                
                 var message = '<?php echo $MESSAGE;?>';
                 if (message != '') {
                     alert(message);
@@ -151,6 +171,7 @@
                             echo "<div class=\"kategorielink\" id=\"kategorie" . $kategorie['id'] . "link\" onclick=\"showCategory('kategorie" . $kategorie['id'] . "')\">" . $kategorie['name'] . "</div>";
                         }
                     ?>
+                    <img style="float: right; cursor: pointer; margin-top: 4px" src="img/close_icon.png" onClick="hideWunschliste();"/>;
                 </div>
                 <div id="wuensche">
                     <?php                        
@@ -176,7 +197,7 @@
                                 
                                 echo "</div><div style=\"clear: both\"></div><div id=\"schenken" . $wunsch['id'] . "\" class=\"schenken\">";           
                                 echo "CHF " . $wunsch['bisher'] . " von CHF " . $wunsch['ziel'] . " erreicht.";     
-                                echo "<div class=\"progressbar\"><div class=\"progress\" style=\"width: " . ($prozent / 100 * 400 - 2) . "px\"></div></div>";
+                                echo "<div class=\"progressbar\"><div class=\"progress\" style=\"width: " . ($prozent / 100 * (400 - 2)) . "px\"></div></div>";
                                 echo "<form action=\"index.php\" method=\"post\">Ich will <input type=\"number\" placeholder=\"Betrag\" required name=\"betrag\" min=\"0\" max=\"" . ($wunsch['ziel'] - $wunsch['bisher']) . "\">CHF schenken.";
                                 echo " Meine Mailadresse ist <input type=\"email\" name=\"mail\" required placeholder=\"Mailadresse\">.";
                                 echo "<input type=\"hidden\" name=\"wunschID\" value=\"" . $wunsch['id'] . "\"/><input type=\"submit\" value=\"Los!\"></form></div></div>";                                
@@ -188,5 +209,6 @@
                 </div>
             </div>
         </div>
+        <footer>&copy; 2013 by Florian Fankhauser</footer>
     </body>
 </html>

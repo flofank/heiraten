@@ -14,11 +14,19 @@
         if ($wunsch = mysql_fetch_assoc($res)) { //WunschID valide
             $kategorieID = $wunsch['kategorie'];
             $offen = $wunsch['ziel'] - $wunsch['bisher'];
-            if ($betrag <= $offen) { // Betrag in Bereich
+            if ($betrag <= $offen) { // Betrag in Bereich?
                 $neu = $betrag + $wunsch['bisher'];
+                // Wunsch aktualisieren
                 mysql_query("update wunschliste set bisher = $neu where ID = $wunschID");
                 $wunschName = $wunsch['name'];
-                mysql_query("update wunschliste set bisher = $neu where ID = $wunschID");
+                // Geschenk eintragen
+                mysql_query("insert into schenkende (wunsch, betrag, mail) values ($wunschID, $betrag, '$mail')");
+                // Bestätigungsmail versenden
+                $header = 'From: wunschliste@matthias-deborah.ch' . "\r\n" .
+                    'Reply-To: mattuke@gmail.com' . "\r\n" .
+                    'X-Mailer: PHP/' . phpversion();
+                mail($mail, "Vielen Dank", "Vielen Dank f\u00fcr deinen Beitrag von CHF $betrag an \"$wunschName\"!", $header);
+                // Popup zur Bestätigung
                 $MESSAGE = "Vielen Dank f\u00fcr deinen Beitrag von CHF $betrag an \"$wunschName\"!";
             } else {
                 $MESSAGE = "Der eingegebene Betrag scheint etwas gross zu sein.";

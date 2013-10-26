@@ -10,8 +10,9 @@ html {
     margin: 0;
     padding: 0;
 
-    background: rgba(199,219,244,1);
-    background-image: url('img/bg_left_top.png');
+/*    background: rgba(199,219,244,1);*/
+    background: #FFF;
+    background-image: url('img/top_left.png');
     background-position: 0px -20px;
     background-size: 600px auto;
     background-repeat: no-repeat;
@@ -19,49 +20,50 @@ html {
     font-size: 11pt;
 }
 body {
+    background-image: url('img/top_right.png');
+    background-position: top right;
+    background-size: 200px auto;
+    background-repeat: no-repeat;
     margin: 0 auto;
     padding: 0;
-    padding-top: 75px;
+    padding-top: 70px;
 
 }
 footer {
-    width: 100%;
-    height: 100%;
-    background-image: url('img/bg_right_bottom.png');
-    background-position: bottom right;
-    background-size: auto 400px;
-    background-repeat: no-repeat;
     position: absolute;
-    bottom: 0px;
-    z-index: -1;
+    bottom: 2px;
+    right: 2px;
+    font-size: 8pt;
+    color: rgba(0,0,0,0.4);
 }
 
 nav {
-    /*width: 100%;*/
     padding: 3px 9px 9px 3px;
     font-size: 12pt;
     display: inline-block;
     margin-left: 200px;
-    border: 3px solid rgba(255,255,255,0.6);
-    /*border: 3px solid rgba(199,219,244,1);*/    
-    border-right: 0px;
-    border-bottom: 0px;
-    border-radius: 6px 12px 0px 12px;
 }
 nav>a {
     display: block;
     float: left;
     padding: 3px;
-    margin-right: 3px;
-    background: rgba(255,255,255,0.2);
-    color: rgba(135,130,90,1);
+    padding-left: 1px;
+    padding-right: 20px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 14pt;
-    border-radius: 3px;
+    font-size: 13pt;
+    margin-right: 1px;
+    /*color: #535f72;*/
+    color: rgba(83,95,114,0.5);
+    border-bottom: 3px solid rgba(83,95,114,0.3);
 }
 nav>a:hover {
-    background: rgba(255,255,255,0.6);
+    color: rgba(83,95,114,0.7);
+    border-bottom: 3px solid rgba(83,95,114,0.7);
+}
+nav>a.selected {
+    color: rgba(83,95,114,1);
+    border-bottom: 3px solid rgba(83,95,114,1);
 }
 #scrollBoxContainer {
     margin: 0 auto;
@@ -70,23 +72,26 @@ nav>a:hover {
 }
 #scrollBox {
     margin: 0 auto;
-    height: 530px;
+    height: 520px;
     overflow-x: scroll;
-    padding-bottom: 10px;
 }
 #content {
     width: 7790px;
     padding: 10px;
     height: 500px;
-    background: #FFF;
+    background: rgba(199,219,244,0.2);
 }
 section {
     width: 675px;
     height: 480px;
     /*background: rgba(255,234,13,1);*/    
-    background: #EEE;
+    background: rgba(199,219,244,1);
+    background-image: url('img/bg_right_bottom.png');
+    background-position: bottom right;
+    background-size: auto 400px;
+    background-repeat: no-repeat;
     display: block;
-    color: rgba(45,45,25,1);
+    color: rgba(32,32,64,0.6);
     float: left;
     margin-right: 10px;
     overflow-y: auto;
@@ -113,6 +118,7 @@ section.high>img {
 section>a>h1 {
     margin-top: 0px;
     margin-bottom: 10px;
+    font-size: 13pt;
 }
 
 section>div.kategorie:hover {
@@ -160,10 +166,12 @@ section>div.kategorie {
     display: block;
     width: 100%;
     cursor: pointer;
+    height: 28px;
 }
 .kategorielink {
     margin-bottom: 1px;
     margin-right: 1px;
+    margin-top: 2px;
     background: rgba(255,255,255,0.95);
     padding: 4px;
     border-radius: 4px 4px 0px 0px;
@@ -171,6 +179,8 @@ section>div.kategorie {
     float: left;
 }
 .kategorielink.selected {
+    height: 28px;
+    margin-top: 0px;
     margin-bottom: 0px;
     background: rgba(255,255,255,1);
 }
