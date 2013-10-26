@@ -70,16 +70,21 @@ nav>a:hover {
 }
 #scrollBox {
     margin: 0 auto;
-    height: 520px;
+    height: 530px;
     overflow-x: scroll;
+    padding-bottom: 10px;
 }
 #content {
-    width: 7770px;
+    width: 7790px;
+    padding: 10px;
+    height: 500px;
+    background: #FFF;
 }
 section {
     width: 675px;
     height: 480px;
-    background: rgba(255,255,255,0.6);    
+    /*background: rgba(255,234,13,1);*/    
+    background: #EEE;
     display: block;
     color: rgba(45,45,25,1);
     float: left;
@@ -153,17 +158,32 @@ section>div.kategorie {
 }
 #kategorien {
     display: block;
-    width: 20%;
-    float: left;
+    width: 100%;
     cursor: pointer;
+}
+.kategorielink {
+    margin-bottom: 1px;
+    margin-right: 1px;
+    background: rgba(255,255,255,0.95);
+    padding: 4px;
+    border-radius: 4px 4px 0px 0px;
+    cursor: pointer;
+    float: left;
+}
+.kategorielink.selected {
+    margin-bottom: 0px;
+    background: rgba(255,255,255,1);
+}
+.kategorielink:hover {
+    background: rgba(255,255,255,1);
 }
 #wuensche {
     display: block;
-    width: 80%;
+    width: 100%;
     max-height: 100%;
     background: white;
     overflow: auto;
-    float: left;
+    clear: both;
 }
 .wunsch {
     display: block;
@@ -176,21 +196,6 @@ section>div.kategorie {
     height: 80px;
     float: left;
     margin: 0px 8px 8px 2px;
-}
-.kategorielink {
-    margin-bottom: 2px;
-    margin-right: 1px;
-    background: rgba(255,255,255,0.95);
-    padding: 4px;
-    border-radius: 4px 0px 0px 4px;
-    cursor: pointer;
-}
-.kategorielink.selected {
-    margin-right: 0px;
-    background: rgba(255,255,255,1);
-}
-.kategorielink:hover {
-    background: rgba(255,255,255,1);
 }
 .kategorietitle {
     margin: 20px;
