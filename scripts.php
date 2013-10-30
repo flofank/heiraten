@@ -18,12 +18,12 @@
         mysql_query("insert into anmeldungen (name, adresse, mail, mobile, bname, salat, salat_nr, cupcake, cupcake_nr) values " 
                 . "('$name', '$adresse', '$mail', '$mobile', '$bname', '$salat', $salat_nr, '$cupcake', $cupcake_nr)");
         // Bestätigungsmail versenden
-        $header = 'From: wunschliste@matthias-deborah.ch' . "\r\n" .
+        $header = 'From: anmeldung@matthias-deborah.ch' . "\r\n" .
             'Reply-To: mattuke@gmail.com' . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
-        mail($mail, "Anmeldebestätigung", "Hallo \nDu hast dich soeben mit folgenden Daten für unsere Hochzeitsfeier angemeldet:" .
-                "Name(n): $name, $bname \n$adresse \n$mail \n$mobile \nSalat: $salat für $salat_nr Personen \nCupcakes: $cupcake_nr $cupcake" .
-                "\nWir freuen uns schon jetzt dich zu sehen.", $header);        
+        mail($mail, "Anmeldebestätigung", "Hallo \n\nDu hast dich soeben mit folgenden Daten für unsere Hochzeitsfeier angemeldet:\n\n" .
+                "Name(n): $name, $bname \n$adresse \n$mail \n$mobile \n\nSalat: $salat für $salat_nr Personen \nCupcakes: $cupcake_nr $cupcake" .
+                "\n\nWir freuen uns schon jetzt dich zu sehen.", $header);        
         // Meldung
         $MESSAGE = "Vielen Dank für deine Anmeldung. Du erhälst in Kürze ein Bestätigungsmail.";
     } else if (isset($_POST['mail']) && isset($_POST['betrag']) && isset($_POST['wunschID'])) { // Formular vollständig ausgefüllt

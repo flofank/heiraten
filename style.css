@@ -139,6 +139,9 @@ section>div {
     margin-bottom: 6px;
     cursor: pointer;
 }
+section>div.person {
+    text-align: center;
+}
 section>div.person>img {
     height: 130px;
     padding: 2px;
