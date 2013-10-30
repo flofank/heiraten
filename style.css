@@ -76,10 +76,10 @@ nav>a.selected {
     overflow-x: scroll;
 }
 #content {
-    width: 7790px;
+    width: 15790px;
     padding: 10px;
     height: 500px;
-    background: rgba(199,219,244,0.2);
+    background: rgba(199,219,244,0.3);
 }
 section {
     width: 675px;
@@ -95,6 +95,9 @@ section {
     float: left;
     margin-right: 10px;
     overflow-y: auto;
+}
+section.nobg {
+    background-image: none;    
 }
 section.text {
     padding: 10px;
@@ -115,7 +118,7 @@ section>img {
 section.high>img {
     width: 338px;
 }
-section>a>h1 {
+section>h1 {
     margin-top: 0px;
     margin-bottom: 10px;
     font-size: 13pt;
@@ -126,7 +129,8 @@ section>div.kategorie:hover {
     background: rgba(200,200,200,0.1);
 }
 
-section>div.kategorie {
+/*section>div.kategorie {*/
+section>div {
     display: block;
     border: 1px solid rgba(255,255,255,0.5);
     background: rgba(255,255,255,0.3);
@@ -135,11 +139,30 @@ section>div.kategorie {
     margin-bottom: 6px;
     cursor: pointer;
 }
+section>div.person>img {
+    height: 130px;
+    padding: 2px;
+    border: 1px solid rgba(255,255,255,0.7);
+    margin: 4px auto;
+    display: block;
+    background: rgba(255,255,255,0.4);
+}
+hr {
+    border: none;
+    border-top: 1px solid rgba(83,95,114,0.5);
+    margin: 0;
+    margin-bottom: 10px;
+}
 
 .hidden {
     display: none
 }
 
+input {
+    padding: 2px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
 /*#######################
 # Wunschliste 
 #######################*/
@@ -243,9 +266,8 @@ input[type=button].schenken {
 form>input[type=submit] {
     width: 80px;
 }
-input {
+input.schenken {
     border-radius: 2px;
-    border: 1px solid rgba(0,0,0,0.2);
     margin: 12px 4px 0px 4px;
 }
 .progressbar {

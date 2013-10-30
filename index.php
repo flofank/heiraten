@@ -95,14 +95,14 @@
                         <img src="img/8.jpg">
                     </section>
                     <section class="text">
-                        <a id="willkommen"><h1>Willkommen</h1></a>
+                        <a id="willkommen"></a><h1>Willkommen</h1>
                         asdfasd fasd fas df
                     </section>
                     <section class="img">
                         <img src="img/1.jpg">
                     </section>
                     <section class="text">
-                        <a id="dertag"><h1>Alles zur Hochzeit</h1></a> 
+                        <a id="dertag"></a><h1>Alles zur Hochzeit</h1>
                         Info zur Idee, dabeisein, so viel man mag und möchte
                         Ablauf des Tages
                         Ort, Zeit, und Zufahrt
@@ -111,26 +111,78 @@
                     <section class="img">
                         <img src="img/2.jpg">
                     </section>
-                    <section class="text">
-                        <a id="dabeisein"><h1>Anmeldeformular</h1></a> 
+                    <section class="text nobg">
+                        <a id="dabeisein"></a><h1>Dabei sein</h1>
                         Teilnahme am ganzen Fest
                         Nach Anmeldung Mail mit Bestätigung und Hinweis dass Beiträge beim Brautfüh-rerteam 
                         Anmeldung Cupcakes oder Muffins (klein oder gross) Sorte.
                         Wir freuen uns auf die kreativen Dekos
                     </section>
+                    <section class="text high">
+                        <h1>Anmeldung</h1>
+                        <form action="index.php" method="post">
+                            Ich bin am Abend dabei. </br>
+                            <input type="text" name="name" style="width: 275px" required placeholder="Vorname, Name"/>
+                            <input type="text" name="adresse" style="width: 275px" required placeholder="Adresse"/>
+                            <input type="email" name="mail" style="width: 275px" required placeholder="E-Mail"/>
+                            <input type="text" name="mobile" style="width: 275px" required placeholder="Natel-Nr"/> </br></br>
+                            Ich komme in Begleitung von: <input type="text" style="width: 275px" name="bname" placeholder="Vorname, Name"/> </br></br>
+                            <hr/>
+                            Ich bringe <input type="text" name="salat" style="width: 65px" placeholder="Salatsorte"/> für <input type="number" style="width: 40px" name="salat_nr"/> Personen. </br>
+                            Ich bringe <input type="number" style="width: 40px" name="cupcake_nr"/> <input type="text" style="width: 95px"name="cupcake" placeholder="Cupcake-Sorte"/>. </br></br>
+                            <input type="submit" name="teilnehmen" value="Teilnehmen"/>
+                         </form>
+                        
+                    </section>
                     <section class="img">
                         <img src="img/5.jpg">
                     </section>
-                    <section class="text">
-                        <a id="diehelden"><h1>Organisation</h1></a> 
+                    <section class="text high nobg">
+                        <a id="diehelden"></a><h1>Organisation</h1>
                         Kurzüberblick Trauzeugen
                         Kurzüberblick OK 
+                    </section>
+                    <section class="text high nobg">
+                        <div class="person">
+                            <img src="img/person_placeholder.jpg"/>
+                            <div class="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</div>
+                        </div>
+                        <div class="person">
+                            <img src="img/person_placeholder.jpg"/>
+                            <div class="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</div>
+                        </div>
+                    </section>
+                    <section class="text high nobg">
+                        <div class="person">
+                            <img src="img/person_placeholder.jpg"/>
+                            <div class="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</div>
+                        </div>
+                        <div class="person">
+                            <img src="img/person_placeholder.jpg"/>
+                            <div class="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</div>
+                        </div>
+                    </section>
+                    <section class="text high nobg">
+                        <div class="person">
+                            <img src="img/person_placeholder.jpg"/>
+                            <div class="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</div>
+                        </div>
+                        <div class="person">
+                            <img src="img/person_placeholder.jpg"/>
+                            <div class="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</div>
+                        </div>
+                    </section>
+                    <section class="text high">
+                        <div class="person">
+                            <img src="img/person_placeholder.jpg"/>
+                            <div class="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</div>
+                        </div>
                     </section>
                     <section class="img">
                         <img src="img/7.jpg">
                     </section>
                     <section class="text">
-                        <a id="daspaar"><h1>Wer sind die 2?</h1></a>
+                        <a id="daspaar"></a><h1>Wer sind die 2?</h1>
                         Je noch dem was Gäst a Dessert oder Salat no chöne metbrenge :)
                         Gemäss separatem Exel.
                     </section>
@@ -138,7 +190,7 @@
                         <img src="img/15.jpg">
                     </section>
                     <section class="text high">
-                        <a id="geschenke"><h1>W&uuml;nsche</h1></a>
+                        <a id="geschenke"></a><h1>W&uuml;nsche</h1>
                         <?php
                             $res = mysql_query("select * from kategorie order by id");
                             $kategorien = array();
@@ -190,7 +242,7 @@
                                 echo "<div class=\"right\">";
                                 echo "<div class=\"beschreibung\">" . $wunsch['beschreibung'] . "</div>";
                                 if ($prozent == 100) {
-                                    echo "<input type=\"button\" disabled value=\"Wunsch erf&uuml;llt\" class=\"schenken\" />";
+                                    echo "<input type=\"button\" class=\"schenken\" disabled value=\"Wunsch erf&uuml;llt\" class=\"schenken\" />";
                                 } else {
                                     echo "<input type=\"button\" value=\"Schenken\" class=\"schenken\" onClick=\"showSchenken(this," . $wunsch['id'] . ")\"/>";
                                 }
@@ -198,9 +250,9 @@
                                 echo "</div><div style=\"clear: both\"></div><div id=\"schenken" . $wunsch['id'] . "\" class=\"schenken\">";           
                                 echo "CHF " . $wunsch['bisher'] . " von CHF " . $wunsch['ziel'] . " erreicht.";     
                                 echo "<div class=\"progressbar\"><div class=\"progress\" style=\"width: " . ($prozent / 100 * (400 - 2)) . "px\"></div></div>";
-                                echo "<form action=\"index.php\" method=\"post\">Ich will <input type=\"number\" placeholder=\"Betrag\" required name=\"betrag\" min=\"0\" max=\"" . ($wunsch['ziel'] - $wunsch['bisher']) . "\">CHF schenken.";
-                                echo " Meine Mailadresse ist <input type=\"email\" name=\"mail\" required placeholder=\"Mailadresse\">.";
-                                echo "<input type=\"hidden\" name=\"wunschID\" value=\"" . $wunsch['id'] . "\"/><input type=\"submit\" value=\"Los!\"></form></div></div>";                                
+                                echo "<form action=\"index.php\" method=\"post\">Ich will <input type=\"number\" class=\"schenken\" placeholder=\"Betrag\" required name=\"betrag\" min=\"0\" max=\"" . ($wunsch['ziel'] - $wunsch['bisher']) . "\">CHF schenken.";
+                                echo " Meine Mailadresse ist <input type=\"email\" name=\"mail\" class=\"schenken\" required placeholder=\"Mailadresse\">.";
+                                echo "<input type=\"hidden\" name=\"wunschID\" value=\"" . $wunsch['id'] . "\"/><input type=\"submit\" class=\"schenken\" value=\"Los!\"></form></div></div>";                                
                             }
                             
                             echo "</div>";
