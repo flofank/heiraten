@@ -4,11 +4,21 @@
 ?>
 <html>
     <head>
+        <meta charset="UTF-8">
         <script src="js/jquery.js"></script>
         <script src="js/jquery.mousewheel.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css" />
         <script>
             var wunschliste = false;
+            
+            function givemethemail() {
+                var a = "sharon";
+                var b = ".hunziger";
+                var d = "gmx.ch";
+                var y = "@";
+                var x = "mailto";
+                location.href= x + ":" + a + b + y + d;
+            }
             
             function showSchenken(sender, id) {
                 $(sender).fadeOut();
@@ -96,29 +106,32 @@
                     </section>
                     <section class="text high">
                         <a id="willkommen"></a><h1>Willkommen</h1>
-                        Herzlich Willkommen auf der Homepage rund um unsere Hochzeit. Wir freuen uns, dass du hier bist. Wir wünschen dir viel Spass beim Entdecken.
+                        Herzlich Willkommen auf der Homepage rund um unsere Hochzeit. Wir freuen uns, dass du hier bist. Wir wünschen dir viel Spass beim Entdecken.<br/><br/>
+                        Melde dich an, sei dabei am 24. Mai 2014.
                     </section>
                     <section class="img">
-                        <img src="img/1.jpg">
+                        <img src="img/3.jpg">
                     </section>
                     <section class="text">
                         <a id="dertag"></a><h1>Alles zur Hochzeit</h1>
                         Wir freuen uns riesig darauf, zusammen mit euch unsere Hochzeit zu feiern. Hier eine grobe Übersicht zu unserem grossen Tag:<br/><br/>
                         <b>Samstag 24. Mai 2014</b><br/>
-                        13:00 Trauung auf dem <a href="https://www.google.ch/maps/preview#!q=Auf+Kirchberg+1+K%C3%BCttigen" target="_blank">Kirchberg Küttigen</a> mit anschliessendem Apéro<br/>
+                        13:00 Trauung auf dem <a class="link" href="https://www.google.ch/maps/preview#!q=Auf+Kirchberg+1+K%C3%BCttigen" target="_blank">Kirchberg Küttigen</a> mit anschliessendem Apéro<br/>
                         17:00 Uhr Start der gemeinsamen Festaktivitäten Outdoor<br/>
                         Anschliessend Festessen und Feiern im Gemeindesaal Buchs<br/>
                         <br/>
+                        Wir freuen uns über jedes Kind, das an der Trauung dabei ist, aber das Fest am Abend findet ohne Kinder statt.
+                        <br/><br/>
                         Weitere Details werden im Verlauf des Tages bekannt gegeben. &#9786; Lass dich überraschen!
                     </section>
-                    <section class="img">
-                        <img src="img/2.jpg">
+                    <section class="img high">
+                        <img src="img/4.jpg">
                     </section>
                     <section class="text nobg">
                         <a id="dabeisein"></a><h1>Dabei sein</h1>
                         Wir möchten gerne unsere Freude mit dir teilen. Geniesse diesen Tag mit uns! Wir laden dich herzlich ein dabei zu sein.<br/><br/>
                         Du bist für den ganzen Tag eingeladen, aber DU entscheidest selbst, wie lange du dabei sein möchtest. Wenn du gerne nur zur Trauung und zum Apero kommst, kannst du das spontan und ohne Anmeldung tun. Noch mehr freuen wir uns, wenn du auch den Abend mit uns verbringst. Dafür bitten wir dich über das Formular nebenan anzumelden.<br/><br/> 
-                        Dein Beitrag zum Salat- oder Cupcakes/Muffins-Buffet ist willkommen. Wir freuen uns auf kreative Dekorationen des Desserts und eine Vielfalt an Salaten.<br/><br/>
+                        Dein Beitrag zum Salat- oder Cupcakes/Muffins-Buffet ist willkommen aber völlig freiwillig. Wir freuen uns auf kreative Dekorationen des Desserts und eine Vielfalt an Salaten.<br/><br/>
                         Dein Beitrag zum Programm kannst du bei Sharon Hunziker anmelden.
                     </section>
                     <section class="text high">
@@ -144,9 +157,9 @@
                         <a id="diehelden"></a><h1>Organisation</h1>
                         Diese Freunde machen grosszügig unseren grossen Tag grossartig. Herzlichen DANK!<br/><br/>
                         <div class="person">
-                            <img src="img/person_placeholder.jpg"/>
+                            <img src="img/sharon.jpg"/>
                             <div class="text">Sharon Hunziker ist die Chefin des OK und Anlaufstelle bei allgemeinen Fragen.<br/><br/>
-                                <a href="mailto:mail@mail.com">mail@mail.com</a></div>
+                                <a class="link" href="javascript:givemethemail()">sharon.hunziker(at)gmx.ch</a></div>
                         </div>
                     </section>
                     <section class="text high nobg">
@@ -155,13 +168,13 @@
                             <div class="text">Beni Keller ist der Bruder und Trauzeuge von Matthias.</div>
                         </div>
                         <div class="person">
-                            <img src="img/person_placeholder.jpg" alt="Rahel Küffer"/>
+                            <img src="img/rahel.jpg" alt="Rahel Küffer"/>
                             <div class="text">Rahel Küffer ist die einzige Schwester der Braut und ihre Trauzeugin.</div>
                         </div>
                     </section>
                     <section class="text high nobg">
                         <div class="person">
-                            <img src="img/person_placeholder.jpg" alt="Sarah Fuhrer"/>
+                            <img src="img/sarah.jpg" alt="Sarah Fuhrer"/>
                             <div class="text">Sarah Fuhrer ist Deborah’s Freundin und ein Organisationstalent.</div>
                         </div>
                         <div class="person">
@@ -182,19 +195,22 @@
                     <section class="img">
                         <img src="img/7.jpg">
                     </section>
+                    <section class="img high">
+                        <img src="img/16.jpg">
+                    </section>
                     <section class="text high">
                         <a id="daspaar"></a><h1>Die Braut</h1>
                         Mein Name ist Deborah. Ich mag mathematische Herausforderungen, daher studiere und unterrichte ich das. Ich bin oft in Aarau und Bern unterwegs. Ich liebe es Freundschaften zu pflegen und freue mich, wenn es dabei um Jesus geht.
                     </section>
                     <section class="img high">
-                        <img src="img/15.jpg">
+                        <img src="img/17.jpg">
                     </section>
                     <section class="text high">
                         <h1>Der Bräutigam</h1>
                         Ich bin Matthias Keller. Das Studium zum Holzbauingenieur in Biel beschäftigt mich seit gut 2 Jahren. Nebenbei bin ich im Sommer immer wieder auf Beachvolley-Plätzen anzutreffen oder am Bier trinken. Ich koche gerne und sehne mich nach jesusmässiger Veränderung in dieser Welt.
                     </section>
-                    <section class="img high">
-                        <img src="img/15.jpg">
+                    <section class="img">
+                        <img src="img/2.jpg">
                     </section>
                     <section class="text">
                         <h1>Unsere Geschichte</h1>
@@ -204,11 +220,12 @@
                         Im November 2011 entschieden sich die 2 für eine Beziehung miteinander, um herauszufinden, ob sie sich eine Ehe miteinander vorstellen können.<br/><br/>
                         Die romantische Verlobung auf dem Sälischlössli bei Olten im April 2013 befeierten die 2 anschliessend bei ihrem Italiener.
                     </section>
-                    <section class="img high">
-                        <img src="img/14.jpg">
+                    <section class="img">
+                        <img src="img/9.jpg">
                     </section>
                     <section class="text high">
                         <a id="geschenke"></a><h1>W&uuml;nsche</h1>
+                        Klicke auf eine dieser Kategorien. Wir danken für jeden Beitrag.<br/><br/>
                         <?php
                             $res = mysql_query("select * from kategorie order by id");
                             $kategorien = array();
@@ -217,8 +234,8 @@
                             }
                         ?>
                     </section>
-                    <section class="img last">
-                        <img src="img/13.jpg">
+                    <section class="img high last">
+                        <img src="img/15.jpg">
                     </section>
                 </div>
 
