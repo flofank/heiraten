@@ -8,6 +8,8 @@
         <script src="js/jquery.mousewheel.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css" />
         <script>
+            var wunschliste = false;
+            
             function showSchenken(sender, id) {
                 $(sender).fadeOut();
                 $("#schenken" + id).slideDown();
@@ -19,6 +21,7 @@
                 $("#" + cat).show();
                 $(".kategorielink.selected").removeClass("selected");
                 $("#" + cat + "link").addClass("selected");
+                wunschliste = true;
             }
             
             function selectNavLinks() {
@@ -31,7 +34,8 @@
             }
             
             function hideWunschliste() {
-                $("#wunschlisteContainer").hide();                
+                $("#wunschlisteContainer").hide();
+                wunschliste = false;
             }
             
             $(function() {      
@@ -56,15 +60,11 @@
                     console.log();
                 });
                 
-                $('#wunschlisteContainer').click(function(event) {
-                    if (event.originalEvent.srcElement == this) {
-                        hideWunschliste();
-                    }
-                });   
-                
                 $("body").mousewheel(function(event, delta) {
-                    $("#scrollBox").scrollLeft($("#scrollBox").scrollLeft() - delta * 50);
-                    event.preventDefault();
+                    if (!wunschliste) {
+                        $("#scrollBox").scrollLeft($("#scrollBox").scrollLeft() - delta * 50);
+                        event.preventDefault();                        
+                    }
                 });
                 
                 $("#scrollBox").scroll(function() {
@@ -251,13 +251,15 @@
                             $result = mysql_query("select * from wunschliste where kategorie = " . $kategorie['id'] . " order by id asc");
                             $wunschliste = array();
                             echo "<div id=\"kategorie" . $kategorie['id'] . "\" class=\"kategoriebody\"><div class=\"kategorietitle\">" . $kategorie['name'] . "</div>";
-                            
+                            echo "<div class=\"beschreibung\">" . $kategorie['beschreibung'] . "</div>";
                             while ($wunsch = mysql_fetch_assoc($result)) {
+                                $chf = $wunsch['ziel'] > 1 ? 'CHF' : '';
+                                $stk = $wunsch['ziel'] > 1 ? 'Betrag' : '1';
                                 $prozent = $wunsch['bisher'] / $wunsch['ziel'] * 100;
                                 echo "<div class=\"wunsch\">";
-                                echo "<div class=\"title\">" . $wunsch['name'] . "</div>";
-                                echo "<img src=\"img/placeholder.png\"/>";
+                                echo "<img src=\"img/gift/" . $wunsch['bild'] . "\"/>";
                                 echo "<div class=\"right\">";
+                                echo "<div class=\"wunschtitle\">" . $wunsch['name'] . "</div>";
                                 echo "<div class=\"beschreibung\">" . $wunsch['beschreibung'] . "</div>";
                                 if ($prozent == 100) {
                                     echo "<input type=\"button\" class=\"schenken\" disabled value=\"Wunsch erf&uuml;llt\" class=\"schenken\" />";
@@ -266,9 +268,9 @@
                                 }
                                 
                                 echo "</div><div style=\"clear: both\"></div><div id=\"schenken" . $wunsch['id'] . "\" class=\"schenken\">";           
-                                echo "CHF " . $wunsch['bisher'] . " von CHF " . $wunsch['ziel'] . " erreicht.";     
+                                echo "$chf " . $wunsch['bisher'] . " von $chf " . $wunsch['ziel'] . " erreicht.";     
                                 echo "<div class=\"progressbar\"><div class=\"progress\" style=\"width: " . ($prozent / 100 * (400 - 2)) . "px\"></div></div>";
-                                echo "<form action=\"index.php\" method=\"post\">Ich will <input type=\"number\" class=\"schenken\" placeholder=\"Betrag\" required name=\"betrag\" min=\"0\" max=\"" . ($wunsch['ziel'] - $wunsch['bisher']) . "\">CHF schenken.";
+                                echo "<form action=\"index.php\" method=\"post\">Ich will <input type=\"number\" class=\"schenken\" placeholder=\"$stk\" required name=\"betrag\" min=\"0\" max=\"" . ($wunsch['ziel'] - $wunsch['bisher']) . "\">$chf schenken.";
                                 echo " Meine Mailadresse ist <input type=\"email\" name=\"mail\" class=\"schenken\" required placeholder=\"Mailadresse\">.";
                                 echo "<input type=\"hidden\" name=\"wunschID\" value=\"" . $wunsch['id'] . "\"/><input type=\"submit\" class=\"schenken\" value=\"Los!\"></form></div></div>";                                
                             }
@@ -277,6 +279,7 @@
                         }
                     ?>
                 </div>
+                <!--<div style="clear: both"></div>-->
             </div>
         </div>
         <footer>&copy; 2013 by Florian Fankhauser</footer>
