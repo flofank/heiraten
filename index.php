@@ -140,6 +140,7 @@
                             Ich bin am Abend dabei. </br>
                             <input type="text" name="name" style="width: 275px" required placeholder="Vorname, Name"/>
                             <input type="text" name="adresse" style="width: 275px" required placeholder="Adresse"/>
+                            <input type="text" name="ort" style="width: 275px" required placeholder="PLZ, Ort"/>
                             <input type="email" name="mail" style="width: 275px" required placeholder="E-Mail"/>
                             <input type="text" name="mobile" style="width: 275px" required placeholder="Natel-Nr"/> </br></br>
                             Ich komme in Begleitung von: <input type="text" style="width: 275px" name="bname" placeholder="Vorname, Name"/> </br></br>
@@ -184,7 +185,7 @@
                     </section>
                     <section class="text high ">
                         <div class="person">
-                            <img src="img/person_placeholder.jpg" alt="Florian Fankhauser"/>
+                            <img src="img/florian.jpg" alt="Florian Fankhauser"/>
                             <div class="text">Florian Fankhauser ist der Mitbewohner von Matthias und genialer Webentwickler.</div>
                         </div>
                         <div class="person">

@@ -8,6 +8,7 @@
     if (isset($_POST['teilnehmen'])) {
         $name = $_POST['name'];
         $adresse = $_POST['adresse'];
+        $ort = $_POST['ort'];
         $mail = $_POST['mail'];
         $mobile = $_POST['mobile'];
         $bname = isset($_POST['bname']) ? $_POST['bname'] : "";
@@ -17,7 +18,7 @@
         $cupcake_nr = $_POST['cupcake_nr'] != "" ? $_POST['cupcake_nr'] : 0;
         // Anmeldung eintragen
         mysql_query("insert into anmeldungen (name, adresse, mail, mobile, bname, salat, salat_nr, cupcake, cupcake_nr) values " 
-                . "('$name', '$adresse', '$mail', '$mobile', '$bname', '$salat', $salat_nr, '$cupcake', $cupcake_nr)");
+                . "('$name', '" . $adresse . ", " . $ort . "', '$mail', '$mobile', '$bname', '$salat', $salat_nr, '$cupcake', $cupcake_nr)");
         // Bestätigungsmail versenden
         $header = 'From: anmeldung@matthias-deborah.ch' . "\r\n" .
             'Reply-To: mattuke@gmail.com' . "\r\n" .
@@ -34,8 +35,12 @@
             }
             $beitrag .= "\n\n";
         }        
+        $satz = "Wir freuen uns dass, du dabei bist.";
+        if ($bname != "") {
+            $satz = "Wir freund uns, dass du und $bname dabei seid.";
+        }
         mail($mail, "Anmeldebestätigung", 
-                "Hallo $name \n\nYeah - Wir freuen uns, dass du dabei bist.\n\n" . $beitrag . "Herzliche Grüsse\nDas Brautpaar\nMatthias & Deborah", $header);        
+                "Hallo $name \n\nYeah - $satz\n\n" . $beitrag . "Herzliche Grüsse\nDas Brautpaar\nMatthias & Deborah", $header);        
         // Meldung
         $MESSAGE = "Vielen Dank für deine Anmeldung. Du erhälst in Kürze ein Bestätigungsmail.";
     } else if (isset($_POST['mail']) && isset($_POST['betrag']) && isset($_POST['wunschID'])) { // Formular vollständig ausgefüllt
