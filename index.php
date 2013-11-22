@@ -189,7 +189,7 @@
                             <div class="text">Florian Fankhauser ist der Mitbewohner von Matthias und genialer Webentwickler.</div>
                         </div>
                         <div class="person">
-                            <img src="img/person_placeholder.jpg" alt="Sandra Hersberger"/>
+                            <img src="img/sandra.jpg" alt="Sandra Hersberger"/>
                             <div class="text">Sandra Hersberger ist unsere kreative Unterstützung und hat den tollen Flyer gestaltet.</div>
                         </div>
                     </section>
