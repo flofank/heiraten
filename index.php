@@ -165,7 +165,7 @@
                     </section>
                     <section class="text high nobg">
                         <div class="person">
-                            <img src="img/person_placeholder.jpg" alt="Beni Keller"/>
+                            <img src="img/beni.jpg" alt="Beni Keller"/>
                             <div class="text">Beni Keller ist der Bruder und Trauzeuge von Matthias.</div>
                         </div>
                         <div class="person">
@@ -282,7 +282,7 @@
                                 if ($prozent == 100) {
                                     echo "<input type=\"button\" class=\"schenken\" disabled value=\"Wunsch erf&uuml;llt\" class=\"schenken\" />";
                                 } else {
-                                    echo "<input type=\"button\" value=\"Schenken\" class=\"schenken\" onClick=\"showSchenken(this," . $wunsch['id'] . ")\"/>";
+                                    echo "<input type=\"button\" value=\"Mehr Infos\" class=\"schenken\" onClick=\"showSchenken(this," . $wunsch['id'] . ")\"/>";
                                 }
                                 
                                 echo "</div><div style=\"clear: both\"></div><div id=\"schenken" . $wunsch['id'] . "\" class=\"schenken\">";           
