@@ -288,7 +288,8 @@
                                 echo "</div><div style=\"clear: both\"></div><div id=\"schenken" . $wunsch['id'] . "\" class=\"schenken\">";           
                                 echo "$chf " . $wunsch['bisher'] . " von $chf " . $wunsch['ziel'] . " erreicht.";     
                                 echo "<div class=\"progressbar\"><div class=\"progress\" style=\"width: " . ($prozent / 100 * (400 - 2)) . "px\"></div></div>";
-                                echo "<form action=\"index.php\" method=\"post\">Ich will <input type=\"number\" class=\"schenken\" placeholder=\"$stk\" required name=\"betrag\" min=\"0\" max=\"" . ($wunsch['ziel'] - $wunsch['bisher']) . "\">$chf schenken.";
+                                echo "<form action=\"index.php\" method=\"post\">Ich, <input type=\"text\" class=\"schenken\" placeholder=\"Name\" name=\"name\" required/>,";
+                                echo " will <input type=\"number\" class=\"schenken\" placeholder=\"$stk\" required name=\"betrag\" min=\"0\" max=\"" . ($wunsch['ziel'] - $wunsch['bisher']) . "\">$chf schenken.";
                                 echo " Meine Mailadresse ist <input type=\"email\" name=\"mail\" class=\"schenken\" required placeholder=\"Mailadresse\">.";
                                 echo "<input type=\"hidden\" name=\"wunschID\" value=\"" . $wunsch['id'] . "\"/><input type=\"submit\" class=\"schenken\" value=\"Los!\"></form></div></div>";                                
                             }
