@@ -130,7 +130,7 @@
                     <section class="text nobg">
                         <a id="dabeisein"></a><h1>Dabei sein</h1>
                         Wir möchten gerne unsere Freude mit dir teilen. Geniesse diesen Tag mit uns! Wir laden dich herzlich ein dabei zu sein.<br/><br/>
-                        Du bist für den ganzen Tag eingeladen, aber DU entscheidest selbst, wie lange du dabei sein möchtest. Wenn du gerne nur zur Trauung und zum Apero kommst, kannst du das spontan und ohne Anmeldung tun. Noch mehr freuen wir uns, wenn du auch den Abend mit uns verbringst. Dafür bitten wir dich über das Formular nebenan anzumelden.<br/><br/> 
+                        Du bist für den ganzen Tag eingeladen, aber DU entscheidest selbst, wie lange du dabei sein möchtest. Wenn du gerne nur zur Trauung und zum Apero kommst, kannst du das spontan und ohne Anmeldung tun. Noch mehr freuen wir uns, wenn du auch den Abend mit uns verbringst. Dafür bitten wir dich über das Formular nebenan anzumelden (Anmeldeschluss: 31. Januar 2014).<br/><br/> 
                         Dein Beitrag zum Salat- oder Cupcakes/Muffins-Buffet ist willkommen aber völlig freiwillig. Wir freuen uns auf kreative Dekorationen des Desserts und eine Vielfalt an Salaten.<br/><br/>
                         Dein Beitrag zum Programm kannst du bei Sharon Hunziker anmelden.
                     </section>
