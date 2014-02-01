@@ -37,7 +37,7 @@ if (isset($_POST['teilnehmen'])) {
     }
     $satz = "Wir freuen uns dass, du dabei bist.";
     if ($bname != "") {
-        $satz = "Wir freund uns, dass du und $bname dabei seid.";
+        $satz = "Wir freuen uns, dass du und $bname dabei seid.";
     }
     mail($mail, "Anmeldebestätigung", "Hallo $name \n\nYeah - $satz\n\n" . $beitrag . "Herzliche Grüsse\nDas Brautpaar\nMatthias & Deborah", $header);
     // Meldung

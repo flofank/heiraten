@@ -87,6 +87,17 @@
                 }
             });
         </script>
+        <?php 
+            if (!isset($_GET['anmelden'])) {
+        ?>
+                <style>
+                    #content {
+                        width: 9896px;
+                    }
+                </style>
+        <?php
+            }
+        ?>        
     </head>
     <body>
         <header> </header>
@@ -131,9 +142,13 @@
                         <a id="dabeisein"></a><h1>Dabei sein</h1>
                         Wir möchten gerne unsere Freude mit dir teilen. Geniesse diesen Tag mit uns! Wir laden dich herzlich ein dabei zu sein.<br/><br/>
                         Du bist für den ganzen Tag eingeladen, aber DU entscheidest selbst, wie lange du dabei sein möchtest. Wenn du gerne nur zur Trauung und zum Apero kommst, kannst du das spontan und ohne Anmeldung tun. Noch mehr freuen wir uns, wenn du auch den Abend mit uns verbringst. Dafür bitten wir dich über das Formular nebenan anzumelden (Anmeldeschluss: 31. Januar 2014).<br/><br/> 
-                        Dein Beitrag zum Salat- oder Cupcakes/Muffins-Buffet ist willkommen aber völlig freiwillig. Wir freuen uns auf kreative Dekorationen des Desserts und eine Vielfalt an Salaten.<br/><br/>
+                        <!--
+                        Dein Beitrag zum Salat- oder Cupcakes/Muffins-Buffet ist willkommen aber völlig freiwillig. Wir freuen uns auf kreative Dekorationen des Desserts und eine Vielfalt an Salaten. <br/><br/> -->
                         Dein Beitrag zum Programm kannst du bei Sharon Hunziker anmelden.
                     </section>
+                    <?php 
+                        if (isset($_GET['anmelden'])) {
+                    ?>
                     <section class="text high">
                         <h1>Anmeldung</h1>
                         <form action="index.php" method="post">
@@ -143,14 +158,22 @@
                             <input type="text" name="ort" style="width: 275px" required placeholder="PLZ, Ort"/>
                             <input type="email" name="mail" style="width: 275px" required placeholder="E-Mail"/>
                             <input type="text" name="mobile" style="width: 275px" required placeholder="Natel-Nr"/> </br></br>
-                            Ich komme in Begleitung von: <input type="text" style="width: 275px" name="bname" placeholder="Vorname, Name"/> </br></br>
+                            Ich komme in Begleitung von: <input type="text" style="width: 275px" name="bname" placeholder="Vorname, Name"/> </br>
+<!--
+            Ausblenden Letzter Formularteil
+</br>
                             <hr/>
                             Ich bringe <input type="text" name="salat" style="width: 65px" placeholder="Salatsorte"/> für <input type="number" style="width: 40px" name="salat_nr"/> Personen. </br>
-                            Ich bringe <input type="number" style="width: 40px" name="cupcake_nr"/> <input type="text" style="width: 95px"name="cupcake" placeholder="Cupcake-Sorte"/>. </br></br>
+                            Ich bringe <input type="number" style="width: 40px" name="cupcake_nr"/> <input type="text" style="width: 95px"name="cupcake" placeholder="Cupcake-Sorte"/>. 
+  -->
+                            </br></br>
                             <input type="submit" name="teilnehmen" value="Teilnehmen"/>
                          </form>
                         
                     </section>
+                    <?php
+                        }
+                    ?>
                     <section class="img">
                         <img src="img/5.jpg">
                     </section>
